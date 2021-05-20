@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+header { display:none; } /* 모바일 모드일 때는 기존 메뉴를 삭제 */
+.login { float:left; margin-left:15px; }
+.login a { display:inline-block; margin:15px 15px 0 0; font-size:20px; color:#E8E8E8; }
+.login a:active { color:#0068b7; }
+
+.navbar-brand {
+	position:absolute; left:50%; width:200px; margin-left:-100px;
+	font-family:'Titillium Web', sans-serif; font-size:30px; color:#F4F4F4;
+}
+.logo-text { color:#A9BCF5; }
+.navbar-right { margin-top:10px; }
+.navbar-right li { float:left; }
+.navbar-right li a { font-size:12px; margin-left:-10px; }
+
+.flexslider { margin-top:-20px; }
+
+
+
+/*///// 푸터 /////*/
+footer { margin-top:30px; padding:20px; background:#02214f; }
+.ft_logo { 
+	font-family:'Titillium Web', sans-serif; font-size:24px; color:#E4E4E4; text-align:center;
+	text-transform:capitalize; text-shadow:0 0 15px #000;
+}
+address.ft_info { width:100%; margin-top:15px; font-size:12px; color:#F4F4F4; text-align:center; }
+.sns { font-size:34px; text-align:center; }
+.sns span { margin-left:5px; }

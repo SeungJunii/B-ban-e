@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*//// 헤더 : 시작 /////*/
+header { position:fixed; left:0; top:0; width:100%; height:50px; background:rgba(0,0,0,0.8); z-index:99; }
+.hd_wrap { width:1000px; height:50px; margin:0 auto; padding:0 15px; }
+.logo { float:left; }
+.logo a { display:block; padding-top:5px; font-family:'Titillium Web', sans-serif; font-size:30px; color:#F4F4F4; }
+.logo-text { color:#A9BCF5; }
+nav { float:left; margin-left:50px; }
+.navbar { display:none; } /* 큰 해상도의 데스크탑 모드에서 부트스트랩 메뉴를 삭제 */
+
+/*///// 메인메뉴 : 시작 /////*/
+ul#dropdown { position:relative; height:50px; }
+ul#dropdown li { float:left; }
+ul#dropdown li a { 
+	display:block; height:50px; padding:0 25px; line-height:55px;
+	color:#FFF; text-shadow:1px 1px 2px #333;
+}
+ul#dropdown li a:hover { color:#0068b7; }
+ul#dropdown li a.no { border:none; }
+/*///// 메인메뉴 : 끝 /////*/
+
+/*///// 서브메뉴 : 시작 /////*/
+ul#dropdown li ul { display:none; position:absolute; z-index:99; } 
+ul#dropdown li ul li { float:none; width:200px; height:40px; background:rgba(0,0,0,0.75); }
+ul#dropdown li ul li a { 
+	display:block; height:40px; padding:0 30px; 
+	border:none; line-height:40px;
+}
+ul#dropdown li ul li a:hover { color:#6CF; background:rgba(0,104,183,0.7); }
+ul#dropdown li ul li.corner, nav ul#dropdown li ul li.corner:hover a { border-bottom-left-radius:5px; border-bottom-right-radius:5px; }
+/*///// 서브메뉴 : 끝 /////*/
+
+/*///// 톱메뉴 : 시작 /////*/
+.topmenu { float:right; }
+.topmenu ul li { float:left; }
+.topmenu ul li a { display:block; margin-top:20px; padding:0 20px; color:#FFF; font-size:12px; }
+.topmenu ul li a:hover { color:#0068b7; }
+/*///// 톱메뉴 : 끝 /////*/
+/*//// 헤더 : 끝 /////*/
+
+
+/*//// 푸터 : 시작 /////*/
+footer { height:150px; margin-top:50px; background:#02214f; }
+.ft_wrap { width:1000px; margin:0 auto; padding:0 15px; }
+.ft_logo { 
+	float:left; padding-top:40px; 	font-family:'Titillium Web', sans-serif; 
+	font-size:30px; color:#E4E4E4; text-transform:capitalize; text-shadow:0 0 15px #000;
+}
+.ft_info { float:left; width:650px; margin-left:40px; margin-top:48px; color:#FFF; font-size:12px; }
+.sns { float:right; margin-top:40px; font-size:32px; }
+.sns span { margin-left:5px; }
+/*//// 푸터 : 끝 /////*/
