@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace속성으로 BoardMapper 인터페이스와 병합 처리를 설정  -->
+<mapper namespace="org.zerock.mapper.BoardMapper">
+	<!-- id속성은 인터페이스의 추상 메서드명을 지정 , resultType은 메서드의 반환형을 지정 -->
+	<select id="getList" resultType="org.zerock.domain.BoardVO">
+      <![CDATA[ select * from tbl_board where bno > 0 ]]>
+   </select>
+   
+   <insert id="insert" >
+      insert into tbl_board(bno ,title, content, writer)
+      values (seq_board.nextval, #{title}, #{content}, #{writer})
+   </insert>
+   
+   <insert id="insertSelectKey" >
+   <!--  keyProperty="bno" > bno에 결과값 저장 -->
+   <!-- order="BEFORE" > SQL문을 미리실행 -->
+   	<selectKey keyProperty="bno" order="BEFORE" resultType="long" >	
+   		select seq_board.nextval from dual 
+   	</selectKey>
+      insert into tbl_board(bno ,title, content, writer)
+      values (#{bno}, #{title}, #{content}, #{writer})
+   </insert>
+
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+      select * from tbl_board where bno = #{bno}
+   </select>
+   
+   <delete id="delete">
+   		delete from tbl_board where bno = #{bno}
+   </delete>
+   
+   <update id="update">
+      update tbl_board set title= #{title}, content=#{content}, writer = #{writer}, updateDate = sysdate
+      where bno = #{bno}
+   </update>
+</mapper>
