@@ -33,7 +33,7 @@ public class BoardControllerTests {
    /* 웹 애플리케이션을 WAS에 배포하지 않고도 스프링 MVC의 동작을 재현할 수 있는 클래스로 WAS에 배포한 것과 같은 것 처럼 테스트가 가능하다.
     * Spring MVC 테스트를 도와주는 프레임워크로 Spring에서 MVC 패턴으로 작성한 프로그램의 컨트롤러를 시작해서 테스트 해준다. */
    @Before // 테스트 전 작업 진행: 모든 테스트 전에 매번 실행되는 메서드
-   public void setup( ) {
+   public void setup( ) {//MockMVC를 
       this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build( );
       // MockMvcBuilders는 MockMvc를 초기화 하는 스태틱 클래스
       // webAppContextSetup(ctx)는 WebApplicationContext를 MockMvc 객체로 만들어 MockMvc 객체로 초기화한다.
@@ -42,9 +42,9 @@ public class BoardControllerTests {
    @Test
    public void testList( ) throws Exception { // 목록에 대한 처리 테스트      
       log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn( ).getModelAndView( ).getModelMap( ));
-      // MockMvc 객체의 perform( )을 이용하여 get, post, put, delete에 대한 요청을 진행
+      // MockMvc 객체의 perform( )을 이용하여 get, post, put, delete에 대한 요청을 진행하며
+   // 인자로 RequestBuilder 인터페이스를 구현한 메서드를 사용한다.
       // 요청을 수행하고 액션들을 체인으로 연결해서 결과 값을 받는다.
-      // 인자로 RequestBuilder 인터페이스를 구현한 메서드를 사용한다.
       // get("/board/list")는 매핑을 정의한다. andReturn( )는 테스트한 결과 객체를 받을 때 사용한다.
    }
    
