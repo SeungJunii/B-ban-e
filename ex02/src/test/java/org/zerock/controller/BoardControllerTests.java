@@ -39,14 +39,24 @@ public class BoardControllerTests {
       // webAppContextSetup(ctx)는 WebApplicationContext를 MockMvc 객체로 만들어 MockMvc 객체로 초기화한다.
    }
 
-   @Test
+  /*@Test
    public void testList( ) throws Exception { // 목록에 대한 처리 테스트      
       log.info(mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn( ).getModelAndView( ).getModelMap( ));
       // MockMvc 객체의 perform( )을 이용하여 get, post, put, delete에 대한 요청을 진행하며
    // 인자로 RequestBuilder 인터페이스를 구현한 메서드를 사용한다.
       // 요청을 수행하고 액션들을 체인으로 연결해서 결과 값을 받는다.
       // get("/board/list")는 매핑을 정의한다. andReturn( )는 테스트한 결과 객체를 받을 때 사용한다.
+   }*/
+   @Test
+   public void testRegister( ) throws Exception { // 등록 처리 테스트
+      String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+            // post( )를 이용하면 POST 방식으로 데이터 전달, param( )을 이용해서 전달한 파라미터를 지정한다.
+            .param("title", "테스트 새글 제목")
+            .param("content", "테스트 새글 내용")
+            .param("writer", "user00"))
+            .andReturn( ).getModelAndView( ).getViewName( );
+
+      log.info(resultPage);
    }
-   
    
 }
